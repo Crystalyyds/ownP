@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.own.mapper.EventMapper">
+    <select id="getUserById" resultType="com.example.own.entity.Event">
+    select * from sys_event left join sys_user
+    on sys_event.user_id = sys_user.id
+    where sys_event.user_id = #{userid}
+    </select>
+</mapper>
