@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Result {
     //是否有效
-    private String code;
+    private Integer code;
     //原因
     private String msg;
     //数据
@@ -23,7 +23,7 @@ public class Result {
         return new Result(Constants.CODE_200, "", data);
     }
 
-    public static Result error(String code,String msg) {
+    public static Result error(Integer code,String msg) {
         return new Result(code, msg, null);
     }
     public static Result error() {
