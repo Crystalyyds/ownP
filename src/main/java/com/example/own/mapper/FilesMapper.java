@@ -1,8 +1,10 @@
 package com.example.own.mapper;
 
 import com.example.own.entity.Files;
+import com.example.own.entity.Role;
 import org.apache.ibatis.annotations.Mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * <p>
@@ -14,5 +16,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 @Mapper
 public interface FilesMapper extends BaseMapper<Files> {
-
+    Role getRoleById(@Param("id") Integer id);
 }

@@ -49,7 +49,7 @@
             <version>3.5.3.1</version>
         </dependency>
 
-<!--        hutool-->
+        <!--        hutool-->
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
@@ -61,7 +61,7 @@
             <version>4.1.2</version>
         </dependency>
 
-<!--        代码生成器-->
+        <!--        代码生成器-->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-generator</artifactId>
@@ -80,9 +80,23 @@
             <artifactId>java-jwt</artifactId>
             <version>3.10.3</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>9.0.71</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+            <version>10.1.8</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+        </dependency>
 
     </dependencies>
-
 
 
     <build>

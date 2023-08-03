@@ -11,7 +11,6 @@ import com.example.own.mapper.UserMapper;
 import com.example.own.service.IUserService;
 import com.example.own.utils.TokenUtils;
 import jakarta.annotation.Resource;
-import org.apache.ibatis.annotations.One;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,8 +30,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
             response.setToken(token);
             return response;
         }else{
-
-            return null;
+            throw new  ServiceException(Constants.CODE_401,"用户密码错误");
         }
     }
 
@@ -44,7 +42,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
             BeanUtil.copyProperties(response,one);
             save(one);
         }else{
-            return one;
+            throw new  ServiceException(Constants.CODE_400,"用户已经存在");
         }
         return  null;
     }

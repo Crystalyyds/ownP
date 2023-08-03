@@ -27,5 +27,6 @@ public class User {
     @TableField(value = "avatar_url")
     private String avatarUrl;
 
-    private  String role;
+    @TableField(value = "role")
+    private String role;
 }

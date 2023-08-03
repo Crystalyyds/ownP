@@ -119,11 +119,9 @@ public class UserController {
         for (List<Object> row : list) {
             User user = new User();
             user.setUsername(row.get(1).toString());
-            user.setPassword(row.get(2).toString());
-            user.setNickname(row.get(3).toString());
+            user.setPassword(row.get(3).toString());
+            user.setNickname(row.get(2).toString());
             user.setPhone(row.get(4).toString());
-            user.setAddress(row.get(5).toString());
-            user.setGender(Boolean.valueOf(row.get(6).toString()));
             users.add(user);
         }
 
@@ -144,9 +142,6 @@ public class UserController {
             return Result.error(Constants.CODE_400, "参数错误");
         }
         Response dto = userService.login(response);
-        if(dto == null){
-            return Result.error(Constants.CODE_400, "用户名或密码错误");
-        }
         return Result.success(dto);
     }
 
@@ -156,15 +151,10 @@ public class UserController {
         String password = response.getPassword();
         if (StrUtil.isBlank(username) || StrUtil.isBlank(password)) return Result.error(Constants.CODE_400, "参数错误");
         User user  = userService.register(response);
-        if(user==null) {
-            return Result.success(userService.register(response));
-        }else{
-            return Result.error(Constants.CODE_600,"用户名已被使用");
-        }
+        return Result.success(userService.register(response));
     }
     @GetMapping("/username/{username}")
-    public Result findPerson(@PathVariable("username") String username) {
-        //
+    public Result findPerson(@PathVariable("username") String username){
         QueryWrapper<User> queryWrap = new QueryWrapper<>();
         queryWrap.eq("username", username);
         return Result.success(userService.getOne(queryWrap));
