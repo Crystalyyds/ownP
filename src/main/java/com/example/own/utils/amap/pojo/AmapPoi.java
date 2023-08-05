@@ -5,7 +5,7 @@ import java.util.List;
 import lombok.Data;
 
 @Data
-public class PoiEntity {
+public class AmapPoi {
     private Suggestion suggestion;
     private String count;
     private String infocode;
