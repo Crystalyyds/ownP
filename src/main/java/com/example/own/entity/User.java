@@ -24,6 +24,9 @@ public class User {
 
     private Boolean gender;
 
+    private String location;
+
+
     @TableField(value = "avatar_url")
     private String avatarUrl;
 

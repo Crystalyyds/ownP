@@ -2,6 +2,7 @@ package com.example.own.controller;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.StrUtil;
+import com.auth0.jwt.JWT;
 import cn.hutool.poi.excel.ExcelReader;
 import cn.hutool.poi.excel.ExcelUtil;
 import cn.hutool.poi.excel.ExcelWriter;
@@ -16,6 +17,7 @@ import com.example.own.mapper.UserMapper;
 import com.example.own.service.IUserService;
 import jakarta.annotation.Resource;
 import jakarta.servlet.ServletOutputStream;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -160,6 +162,14 @@ public class UserController {
         return Result.success(userService.getOne(queryWrap));
     }
 
+    @GetMapping("/find")
+    public Result preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        String token = request.getHeader("token");
+        String userid = JWT.decode(token).getAudience().get(0);
+        User user = userService.getById(userid);
+        user.setPassword(null);
+        return Result.success(user);
+    }
 
 
 }

@@ -19,9 +19,9 @@ public class AmapController {
      *  POI 查询
      */
     @GetMapping("/poi")
-    public Result getAmapPoi(@RequestParam String keyword) {
-//        System.out.println("测试成功");
-        return Result.success(amapService.PoiSearch(keyword));
+    public Result getAmapPoi(@RequestParam String keyword,@RequestParam String location) {
+        System.out.println("测试成功");
+        return Result.success(AmapService.PoiSearch(keyword,location));
     }
 
     /*
@@ -31,4 +31,15 @@ public class AmapController {
     public Result getWeather(String cityCode) {
         return Result.success(amapService.WeatherSearch(cityCode));
     }
+
+
+    /*
+     *  搜索提示 search
+     */
+    @GetMapping("/suggestion")
+    public Result getWeather(String keyword, String location) {
+        return Result.success(amapService.SuggestionSearch(keyword, location));
+    }
+
+
 }

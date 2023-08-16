@@ -17,7 +17,7 @@ public class InterceptorConfig implements WebMvcConfigurer {
     }
 
     @Bean
-    public JwtInterceptor jwtInterceptor(){
+    public JwtInterceptor jwtInterceptor() {
         return new JwtInterceptor();
     }
 }

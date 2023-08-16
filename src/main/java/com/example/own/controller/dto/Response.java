@@ -1,5 +1,7 @@
 package com.example.own.controller.dto;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 @Data
@@ -14,6 +16,10 @@ public class Response {
     private String address;
 
     private String phone;
+
+
+    private String location;
+
 
 
     private String token;
