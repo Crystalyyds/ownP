@@ -27,6 +27,8 @@ public class AmapService {
         hashMap.put("key", key);
         hashMap.put("keywords", keyword);
         hashMap.put("location", location);
+        hashMap.put("offset", "10");
+        hashMap.put("page", "1");
         String json = HttpUtil.post("https://restapi.amap.com/v3/place/text?", hashMap);
 
         return JSONUtil.toBean(json, AmapPoi.class);
