@@ -5,6 +5,7 @@ import cn.hutool.json.JSONUtil;
 import com.example.own.utils.amap.pojo.AmapPoi;
 import com.example.own.utils.amap.pojo.AmapSuggestion;
 import com.example.own.utils.amap.pojo.AmapWeather;
+import com.example.own.utils.amap.pojo.direction.Walking;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -59,6 +60,21 @@ public class AmapService {
         hashMap.put("keywords", keyword);
         String json = HttpUtil.post("https://restapi.amap.com/v3/assistant/inputtips?",hashMap);
         return JSONUtil.toBean(json, AmapSuggestion.class);
+    }
+
+    /*
+     *  路径提示;
+     * origin 起点
+     * destination 终点
+     */
+    public Walking WhereGoByWalking(String origin,String destination){
+        HashMap<String, Object> hashMap = new HashMap<>();
+        hashMap.put("output", "JSON");
+        hashMap.put("key", key);
+        hashMap.put("origin",origin);
+        hashMap.put("destination",destination);
+        String json = HttpUtil.post("https://restapi.amap.com/v3/direction/walking?",hashMap);
+        return JSONUtil.toBean(json, Walking.class);
     }
 
 }

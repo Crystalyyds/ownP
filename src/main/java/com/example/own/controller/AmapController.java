@@ -28,7 +28,7 @@ public class AmapController {
      *  天气 查询  keyword => citycode
      */
     @GetMapping("/weather")
-    public Result getWeather(String cityCode) {
+    public Result getWeather(@RequestParam String cityCode) {
         return Result.success(amapService.WeatherSearch(cityCode));
     }
 
@@ -37,8 +37,16 @@ public class AmapController {
      *  搜索提示 search
      */
     @GetMapping("/suggestion")
-    public Result getWeather(String keyword, String location) {
+    public Result getWeather(@RequestParam String keyword, @RequestParam String location) {
         return Result.success(amapService.SuggestionSearch(keyword, location));
+    }
+    /*
+     *  步行路线提示，距离不能太远
+     */
+    @GetMapping("/go/walk")
+    public Result getGoByWalking(@RequestParam String origin,@RequestParam String destination){
+        System.out.println("walking==>");
+        return Result.success(amapService.WhereGoByWalking(origin, destination));
     }
 
 
