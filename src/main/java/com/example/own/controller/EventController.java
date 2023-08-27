@@ -62,6 +62,7 @@ public class EventController {
         if (!"".equals(content)) {
             queryWrapper.like("content", content);
         }
+        queryWrapper.orderByDesc("id");
         return Result.success(iEventService.page(page, queryWrapper));
     }
     @DeleteMapping("/delete/{id}")
