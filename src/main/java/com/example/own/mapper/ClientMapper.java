@@ -12,7 +12,7 @@ public interface ClientMapper extends BaseMapper<Client> {
     @Delete("delete from sys_admin_user where user_id = #{userId}")
     int deleteByUserId(@Param("userId") Integer userId);
 
-    List<User> selectByAmdinId(@Param("adminId") Integer adminId);
+    List<User> selectByAmdinId(@Param("adminId") Integer adminId,@Param("input") String input);
 
 
     @Insert("insert into sys_admin_user(admin_id, user_id) values (#{adminId}, #{userId})")

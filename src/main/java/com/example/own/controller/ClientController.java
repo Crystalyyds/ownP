@@ -30,8 +30,10 @@ public class ClientController {
     }
 
     @GetMapping("/list/{id}")
-    public Result list(@PathVariable("id") Integer adminId){
-        return Result.success(clientMapper.selectByAmdinId(adminId));
+    public Result list(@PathVariable("id") Integer adminId,
+                       @RequestParam(defaultValue  = "") String input
+    ){
+        return Result.success(clientMapper.selectByAmdinId(adminId,input));
     }
 
 }

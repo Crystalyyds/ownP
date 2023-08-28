@@ -168,7 +168,7 @@ public class UserController {
     public Result preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String token = request.getHeader("token");
         Integer userid = Integer.valueOf(JWT.decode(token).getAudience().get(0));
-        System.out.println("userid:================"+userid);
+//        System.out.println("userid:================"+userid);
         User user = userService.getById(userid);
         Response response1 = new Response();
         BeanUtils.copyProperties(user,response1);

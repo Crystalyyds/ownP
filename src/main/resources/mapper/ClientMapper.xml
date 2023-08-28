@@ -4,6 +4,11 @@
     <select id="selectByAmdinId" resultType="com.example.own.entity.User">
         select * from sys_admin_user left join sys_user
         on sys_user.id = sys_admin_user.user_id
-        where sys_admin_user.admin_id = #{adminId}
+        <where>
+            <if test="input != null and input != '' ">
+                sys_user.username like concat('%', #{input} ,'%')
+            </if>
+            and sys_admin_user.admin_id = #{adminId}
+        </where>
     </select>
 </mapper>
