@@ -2,6 +2,7 @@ package com.example.own.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.example.own.entity.Client;
+import com.example.own.entity.User;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -11,8 +12,7 @@ public interface ClientMapper extends BaseMapper<Client> {
     @Delete("delete from sys_admin_user where user_id = #{userId}")
     int deleteByUserId(@Param("userId") Integer userId);
 
-    @Select("select user_id from sys_admin_user where admin_id = #{adminId}")
-    List<Integer> selectByAmdinId(@Param("adminId") Integer adminId);
+    List<User> selectByAmdinId(@Param("adminId") Integer adminId);
 
 
     @Insert("insert into sys_admin_user(admin_id, user_id) values (#{adminId}, #{userId})")

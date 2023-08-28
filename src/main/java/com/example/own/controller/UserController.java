@@ -19,6 +19,7 @@ import jakarta.annotation.Resource;
 import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -166,10 +167,13 @@ public class UserController {
     @GetMapping("/find")
     public Result preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String token = request.getHeader("token");
-        String userid = JWT.decode(token).getAudience().get(0);
+        Integer userid = Integer.valueOf(JWT.decode(token).getAudience().get(0));
+        System.out.println("userid:================"+userid);
         User user = userService.getById(userid);
-        user.setPassword(null);
-        return Result.success(user);
+        Response response1 = new Response();
+        BeanUtils.copyProperties(user,response1);
+        response1.setPassword(null);
+        return Result.success(response1);
     }
 
 
