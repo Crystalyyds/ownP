@@ -1,18 +1,18 @@
-package com.example.own.utils.amap;
+package com.example.own.service.impl;
 
 import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONUtil;
-import com.example.own.utils.amap.pojo.AmapPoi;
-import com.example.own.utils.amap.pojo.AmapSuggestion;
-import com.example.own.utils.amap.pojo.AmapWeather;
-import com.example.own.utils.amap.pojo.direction.Walking;
+import com.example.own.entity.pojo.AmapPoi;
+import com.example.own.entity.pojo.AmapSuggestion;
+import com.example.own.entity.pojo.AmapWeather;
+import com.example.own.entity.pojo.direction.Walking;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 
 
 @Service
-public class AmapService {
+public class AmapServiceImpl {
     /*
     *  申请自己的WEB key
     */

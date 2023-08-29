@@ -2,7 +2,7 @@ package com.example.own.controller;
 
 
 import com.example.own.common.Result;
-import com.example.own.utils.amap.AmapService;
+import com.example.own.service.impl.AmapServiceImpl;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/amap")
 public class AmapController {
     @Resource
-    private AmapService amapService;
+    private AmapServiceImpl amapServiceImpl;
 
     /*
      *  POI 查询
@@ -21,7 +21,7 @@ public class AmapController {
     @GetMapping("/poi")
     public Result getAmapPoi(@RequestParam String keyword,@RequestParam String location) {
         System.out.println("测试成功");
-        return Result.success(AmapService.PoiSearch(keyword,location));
+        return Result.success(AmapServiceImpl.PoiSearch(keyword,location));
     }
 
     /*
@@ -29,7 +29,7 @@ public class AmapController {
      */
     @GetMapping("/weather")
     public Result getWeather(@RequestParam String cityCode) {
-        return Result.success(amapService.WeatherSearch(cityCode));
+        return Result.success(amapServiceImpl.WeatherSearch(cityCode));
     }
 
 
@@ -38,7 +38,7 @@ public class AmapController {
      */
     @GetMapping("/suggestion")
     public Result getWeather(@RequestParam String keyword, @RequestParam String location) {
-        return Result.success(amapService.SuggestionSearch(keyword, location));
+        return Result.success(amapServiceImpl.SuggestionSearch(keyword, location));
     }
     /*
      *  步行路线提示，距离不能太远
@@ -46,7 +46,7 @@ public class AmapController {
     @GetMapping("/go/walk")
     public Result getGoByWalking(@RequestParam String origin,@RequestParam String destination){
         System.out.println("walking==>");
-        return Result.success(amapService.WhereGoByWalking(origin, destination));
+        return Result.success(amapServiceImpl.WhereGoByWalking(origin, destination));
     }
 
 
