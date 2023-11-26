@@ -38,8 +38,7 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
-
-
+    //分页查询
     @GetMapping("/page")
     public Result findPage(@RequestParam Integer pageNum,
                                 @RequestParam Integer pageSize,
