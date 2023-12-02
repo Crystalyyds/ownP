@@ -26,6 +26,8 @@ public class User {
 
     private String location;
 
+    private String mail;
+
 
     @TableField(value = "avatar_url")
     private String avatarUrl;
