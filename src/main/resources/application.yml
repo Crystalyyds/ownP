@@ -1,10 +1,10 @@
 server:
-  port: 9090 #后端运行端口
+  port: 9090
 
 spring:
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver #驱动不变
-    url: jdbc:mysql://localhost:3306/own?useSSL=false&Timezone=GMT%2B8 # own 的变成自己的数据库名
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/own?useSSL=false&Timezone=GMT%2B8
     username: root
     password: 123456
   servlet:
@@ -13,7 +13,7 @@ spring:
       max-request-size: 100MB
 
 mybatis:
-  mapper-locations: classpath:mapper/*.xml  #扫描所有mybatis的xml文件
+  mapper-locations: classpath:mapper/*.xml
 
 mybatis-plus:
   configuration:
@@ -22,4 +22,4 @@ mybatis-plus:
 
 files:
   upload:
-    path: D:/Code/ownP/files/  #储存上次的文件图片视频的储存位置，自己可以改成逻辑地址
+    path: D:/Code/ownP/files/
