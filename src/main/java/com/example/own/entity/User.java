@@ -11,27 +11,16 @@ import lombok.Data;
 public class User {
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
-
     private String username;
-
     private String nickname;
-
     private String password;
-
     private String phone;
-
     private String address;
-
     private Boolean gender;
-
     private String location;
-
     private String mail;
-
-
     @TableField(value = "avatar_url")
     private String avatarUrl;
-
     @TableField(value = "role")
     private String role;
 }
